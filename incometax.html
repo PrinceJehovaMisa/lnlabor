@@ -85,7 +85,7 @@
 
         <button onclick="calculateTax()">Calculate Tax</button>
 
-        <p id="result">Income tax will be displayed here.</p>
+        <p id="result">Income Tax will be displayed here.</p>
     </main>
 
     <a href="index.html">Return to Index</a>
@@ -117,7 +117,7 @@
                     tax = 2410000 + 0.35 * (income - 8000000);
                 }
 
-                document.getElementById("result").innerText = "Income Tax: " + tax.toFixed(2);
+                document.getElementById("result").innerText = "Income Tax: ₱" + tax.toFixed(2);
             } else {
                 document.getElementById("result").innerText = "Please enter a valid number.";
             }
