@@ -46,6 +46,13 @@
             box-sizing: border-box;
         }
 
+        main select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
         main button {
             background-color: #FF69B4; /* Hot Pink */
             color: #fff;
@@ -78,7 +85,14 @@
     </header>
 
     <main>
-        <h2>Calculate Factorial, Sum, and Average</h2>
+        <h2>Choose Calculation Type</h2>
+
+        <label for="calculationType">Select Calculation:</label>
+        <select id="calculationType">
+            <option value="factorial">Factorial</option>
+            <option value="sum">Sum</option>
+            <option value="average">Average</option>
+        </select>
 
         <label for="value">Enter a number (N):</label>
         <input type="number" id="value" placeholder="Enter value" />
@@ -92,40 +106,67 @@
 
     <script>
         function calculate() {
+            var calculationType = document.getElementById("calculationType").value;
             var n = parseInt(document.getElementById("value").value);
 
             if (!isNaN(n) && n >= 0) {
-                var factorial = 1;
-                var sum = 0;
+                var result;
 
-                // Calculate Factorial using While Loop
-                var i = 1;
-                while (i <= n) {
-                    factorial *= i;
-                    i++;
+                switch (calculationType) {
+                    case "factorial":
+                        result = calculateFactorial(n);
+                        break;
+                    case "sum":
+                        result = calculateSum(n);
+                        break;
+                    case "average":
+                        result = calculateAverage(n);
+                        break;
+                    default:
+                        result = "Invalid calculation type";
+                        break;
                 }
 
-                // Calculate Sum using Do While Loop
-                var j = 1;
-                do {
-                    sum += j;
-                    j++;
-                } while (j <= n);
-
-                // Calculate Average using For Loop
-                var total = 0;
-                for (var k = 1; k <= n; k++) {
-                    total += k;
-                }
-                var average = total / n;
-
-                document.getElementById("result").innerText =
-                    "Factorial of " + n + " is: " + factorial + "\n" +
-                    "Sum of first " + n + " natural numbers is: " + sum + "\n" +
-                    "Average of first " + n + " natural numbers is: " + average.toFixed(2);
+                document.getElementById("result").innerText = result;
             } else {
                 document.getElementById("result").innerText = "Please enter a valid non-negative number.";
             }
+        }
+
+        function calculateFactorial(n) {
+            var factorial = 1;
+            var i = 1;
+
+            while (i <= n) {
+                factorial *= i;
+                i++;
+            }
+
+            return "Factorial of " + n + " is: " + factorial;
+        }
+
+        function calculateSum(n) {
+            var sum = 0;
+            var i = 1;
+
+            do {
+                sum += i;
+                i++;
+            } while (i <= n);
+
+            return "Sum of first " + n + " natural numbers is: " + sum;
+        }
+
+        function calculateAverage(n) {
+            var total = 0;
+
+            for (var i = 1; i <= n; i++) {
+                total += i;
+            }
+
+            var average = total / n;
+
+            return "Average of first " + n + " natural numbers is: " + average.toFixed(2);
         }
     </script>
 
