@@ -50,7 +50,8 @@
             text-align: center;
         }
 
-        nav a:hover ul {
+        nav a:hover + ul,
+        nav ul:hover {
             display: block;
         }
 
@@ -77,16 +78,6 @@
             margin: 20px auto;
             max-width: 100%; /* Make sure the image doesn't exceed its container */
         }
-
-        footer {
-            background-color: #FF69B4; /* Hot Pink */
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
     </style>
 </head>
 <body>
@@ -99,8 +90,8 @@
         <a href="index.html">Home</a>
         <a href="#">About
             <ul>
-                <li><a href="incometax.html">Our Team</a></li>
-                <li><a href="conversion.html">Mission</a></li>
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="mission.html">Mission</a></li>
                 <!-- Add more submenu items as needed -->
             </ul>
         </a>
@@ -110,12 +101,8 @@
         <h2>Welcome to Your Barbie Dream World</h2>
         <p>This is a magical webpage inspired by Barbie's world!</p>
         <p>You can customize this section to add more fabulous content.</p>
-        <img src="ryangosling.jpg" alt="Barbie Image">
+        <img src="ryangosling.jpg" alt="Ryan Gosling Image">
     </section>
-
-    <footer>
-        
-    </footer>
 
 </body>
 </html>
