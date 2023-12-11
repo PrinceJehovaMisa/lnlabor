@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Barbie Webpage - Calculations</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Pacifico', cursive;
+            margin: 0;
+            padding: 0;
+            background-color: #FFB6C1; /* Light Pink */
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+
+        header {
+            background-color: #FF69B4; /* Hot Pink */
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #FFC0CB; /* Pink */
+            padding: 15px; /* Increased padding */
+            text-align: center; /* Center links */
+        }
+
+        nav a {
+            color: #800080; /* Purple */
+            text-decoration: none;
+            margin: 0 15px; /* Increased margin */
+            font-size: 18px; /* Increased font size */
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Relative positioning for absolute elements inside */
+        }
+
+        section h2 {
+            text-align: center; /* Center the text */
+            color: #FF69B4; /* Hot Pink */
+        }
+
+        section p {
+            text-align: center; /* Center the text */
+            color: #800080; /* Purple */
+        }
+
+        section img {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%; /* Make sure the image doesn't exceed its container */
+        }
+
+        section div {
+            text-align: center; /* Center the calculations */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Barbie Webpage</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="conversion.html">Converter</a>
+        <a href="incometax.html">Income Tax</a>
+        <a href="factorials.html">Factorials</a>
+        <a href="simplepayroll.html">Simple Payroll</a>
+        <!-- Add more links as needed -->
+    </nav>
+
+    <section>
+        <h2>Calculations with Barbie Magic!</h2>
+        <p>Performing some magical calculations:</p>
+        <div>
+            <button onclick="calculateFactorial()">Calculate Factorial</button>
+            <button onclick="calculateSum()">Calculate Sum</button>
+            <button onclick="calculateAverage()">Calculate Average</button>
+        </div>
+        <div id="result"></div>
+        <img src="ryangosling.jpg" alt="Ryan Gosling Image">
+    </section>
+
+    <script>
+        function calculateFactorial() {
+            var n = parseInt(prompt("Enter a number (N) for factorial calculation:"));
+            var result = 1;
+            var i = 1;
+            
+            while (i <= n) {
+                result *= i;
+                i++;
+            }
+
+            document.getElementById("result").innerHTML = "Factorial of " + n + " is: " + result;
+        }
+
+        function calculateSum() {
+            var n = parseInt(prompt("Enter a number (N) for sum calculation:"));
+            var result = 0;
+            var i = 1;
+
+            do {
+                result += i;
+                i++;
+            } while (i <= n);
+
+            document.getElementById("result").innerHTML = "Sum of first " + n + " natural numbers is: " + result;
+        }
+
+        function calculateAverage() {
+            var n = parseInt(prompt("Enter a number (N) for average calculation:"));
+            var sum = 0;
+
+            for (var i = 1; i <= n; i++) {
+                sum += i;
+            }
+
+            var average = sum / n;
+
+            document.getElementById("result").innerHTML = "Average of first " + n + " natural numbers is: " + average;
+        }
+    </script>
+
+</body>
+</html>
