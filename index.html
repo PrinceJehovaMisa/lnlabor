@@ -31,7 +31,6 @@
             text-decoration: none;
             margin: 0 10px;
             position: relative;
-            display: inline-block;
         }
 
         nav ul {
@@ -40,9 +39,10 @@
             margin: 0;
             display: none;
             position: absolute;
+            top: 100%; /* Position the dropdown below the link */
+            left: 0;
             background-color: #FFC0CB; /* Pink */
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            z-index: 1;
         }
 
         nav ul li {
@@ -50,9 +50,9 @@
             text-align: center;
         }
 
-        nav a:hover ul {
+        nav a:hover + ul,
+        nav ul:hover {
             display: block;
-            position: absolute;
         }
 
         section {
