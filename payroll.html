@@ -20,6 +20,19 @@
             text-align: center;
         }
 
+        nav {
+            background-color: #FFC0CB; /* Pink */
+            padding: 15px; /* Increased padding */
+            text-align: center; /* Center links */
+        }
+
+        nav a {
+            color: #800080; /* Purple */
+            text-decoration: none;
+            margin: 0 15px; /* Increased margin */
+            font-size: 18px; /* Increased font size */
+        }
+
         main {
             max-width: 600px;
             margin: 20px auto;
@@ -88,6 +101,15 @@
         <h1>Payroll Management</h1>
     </header>
 
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="conversion.html">Converter</a>
+        <a href="incometax.html">Income Tax</a>
+        <a href="factorials.html">Factorials</a>
+        <a href="payroll.html">Simple Payroll</a>
+        <!-- Add more links as needed -->
+    </nav>
+
     <main>
         <h2>Add or Delete Employees</h2>
 
@@ -150,43 +172,4 @@
                     net: netPay
                 };
 
-                employees.push(employee);
-                displayEmployees();
-            } else {
-                alert("Please enter valid numerical values.");
-            }
-        }
-
-        function deleteEmployee() {
-            var deleteLineNumber = parseInt(document.getElementById("deleteLineNumber").value);
-
-            if (!isNaN(deleteLineNumber) && deleteLineNumber > 0 && deleteLineNumber <= employees.length) {
-                employees.splice(deleteLineNumber - 1, 1);
-                displayEmployees();
-            } else {
-                alert("Please enter a valid line number to delete.");
-            }
-        }
-
-        function displayEmployees() {
-            var tableBody = document.getElementById("tableBody");
-            tableBody.innerHTML = '';
-
-            for (var i = 0; i < employees.length; i++) {
-                var row = "<tr>" +
-                    "<td>" + (i + 1) + "</td>" +
-                    "<td>" + employees[i].name + "</td>" +
-                    "<td>" + employees[i].days + "</td>" +
-                    "<td>" + employees[i].rate + "</td>" +
-                    "<td>" + employees[i].gross + "</td>" +
-                    "<td>" + employees[i].deduct + "</td>" +
-                    "<td>" + employees[i].net + "</td>" +
-                    "</tr>";
-
-                tableBody.innerHTML += row;
-            }
-        }
-    </script>
-
-</body>
-</html>
+                employees
