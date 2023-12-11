@@ -24,6 +24,8 @@
             background-color: #FFC0CB; /* Pink */
             padding: 15px; /* Increased padding */
             text-align: center; /* Center links */
+            display: flex;
+            justify-content: center;
         }
 
         nav a {
@@ -172,4 +174,61 @@
                     net: netPay
                 };
 
-                employees
+                employees.push(employee);
+
+                displayEmployees();
+                clearInputFields();
+            } else {
+                alert("Please enter valid numeric values for Days Worked, Daily Rate, and Deduction Amount.");
+            }
+        }
+
+        function deleteEmployee() {
+            var lineNumber = parseInt(document.getElementById("deleteLineNumber").value);
+
+            if (!isNaN(lineNumber) && lineNumber >= 1 && lineNumber <= employees.length) {
+                employees.splice(lineNumber - 1, 1);
+                displayEmployees();
+                clearInputFields();
+            } else {
+                alert("Please enter a valid line number to delete.");
+            }
+        }
+
+        function displayEmployees() {
+            var tableBody = document.getElementById("tableBody");
+            tableBody.innerHTML = "";
+
+            for (var i = 0; i < employees.length; i++) {
+                var employee = employees[i];
+                var row = tableBody.insertRow(i);
+
+                var cellNumber = row.insertCell(0);
+                var cellName = row.insertCell(1);
+                var cellDays = row.insertCell(2);
+                var cellRate = row.insertCell(3);
+                var cellGross = row.insertCell(4);
+                var cellDeduct = row.insertCell(5);
+                var cellNet = row.insertCell(6);
+
+                cellNumber.innerHTML = i + 1;
+                cellName.innerHTML = employee.name;
+                cellDays.innerHTML = employee.days;
+                cellRate.innerHTML = employee.rate.toFixed(2);
+                cellGross.innerHTML = employee.gross.toFixed(2);
+                cellDeduct.innerHTML = employee.deduct.toFixed(2);
+                cellNet.innerHTML = employee.net.toFixed(2);
+            }
+        }
+
+        function clearInputFields() {
+            document.getElementById("employeeName").value = "";
+            document.getElementById("daysWorked").value = "";
+            document.getElementById("dailyRate").value = "";
+            document.getElementById("deductionAmount").value = "";
+            document.getElementById("deleteLineNumber").value = "";
+        }
+    </script>
+
+</body>
+</html>
