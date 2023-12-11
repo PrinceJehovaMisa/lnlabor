@@ -39,13 +39,7 @@
             color: #800080; /* Purple */
         }
 
-        main input {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            box-sizing: border-box;
-        }
-
+        main input,
         main select {
             width: 100%;
             padding: 8px;
@@ -67,6 +61,14 @@
             text-align: center; /* Center the text */
             color: #800080; /* Purple */
             margin-top: 10px;
+        }
+
+        main a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #800080; /* Purple */
+            text-decoration: none;
         }
     </style>
 </head>
@@ -93,6 +95,8 @@
         <button onclick="convert()">Convert</button>
 
         <p id="result">Result will be displayed here.</p>
+
+        <a href="index.html">Return to Index</a>
     </main>
 
     <script>
