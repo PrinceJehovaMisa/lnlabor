@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #FFB6C1; /* Light Pink */
+            overflow-x: hidden; /* Hide horizontal scrollbar */
         }
 
         header {
@@ -38,6 +39,7 @@
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Relative positioning for absolute elements inside */
         }
 
         section h2 {
@@ -55,6 +57,23 @@
             margin: 20px auto;
             max-width: 100%; /* Make sure the image doesn't exceed its container */
         }
+
+        /* Decorative elements on the sides */
+        .left-decoration, .right-decoration {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 50px;
+            background-color: #FFC0CB; /* Pink */
+        }
+
+        .left-decoration {
+            left: 0;
+        }
+
+        .right-decoration {
+            right: 0;
+        }
     </style>
 </head>
 <body>
@@ -71,6 +90,10 @@
         <a href="simplepayroll.html">Simple Payroll</a>
         <!-- Add more links as needed -->
     </nav>
+
+    <!-- Decorative elements on the sides -->
+    <div class="left-decoration"></div>
+    <div class="right-decoration"></div>
 
     <section>
         <h2>Welcome to Your Barbie Dream World</h2>
