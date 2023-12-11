@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meters to Feet Calculator</title>
+    <title>Unit Converter</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;700&display=swap">
     <style>
         body {
@@ -46,6 +46,13 @@
             box-sizing: border-box;
         }
 
+        main select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
         main button {
             background-color: #FF69B4; /* Hot Pink */
             color: #fff;
@@ -66,14 +73,22 @@
 <body>
 
     <header>
-        <h1>Meters to Feet Calculator</h1>
+        <h1>Unit Converter</h1>
     </header>
 
     <main>
-        <h2>Convert Meters to Feet</h2>
+        <h2>Choose Conversion Type</h2>
 
-        <label for="meters">Enter Meters:</label>
-        <input type="number" id="meters" placeholder="Enter meters" />
+        <label for="conversionType">Select Conversion:</label>
+        <select id="conversionType">
+            <option value="feetToMeters">Feet to Meters</option>
+            <option value="metersToFeet">Meters to Feet</option>
+            <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option>
+            <option value="fahrenheitToCelsius">Fahrenheit to Celsius</option>
+        </select>
+
+        <label for="value">Enter Value:</label>
+        <input type="number" id="value" placeholder="Enter value" />
 
         <button onclick="convert()">Convert</button>
 
@@ -82,18 +97,31 @@
 
     <script>
         function convert() {
-            // Get the value in meters
-            var meters = parseFloat(document.getElementById("meters").value);
+            var conversionType = document.getElementById("conversionType").value;
+            var value = parseFloat(document.getElementById("value").value);
 
-            // Check if the input is a valid number
-            if (!isNaN(meters)) {
-                // Convert meters to feet (1 meter = 3.28084 feet)
-                var feet = meters * 3.28084;
+            if (!isNaN(value)) {
+                var result;
+                switch (conversionType) {
+                    case "feetToMeters":
+                        result = value * 0.3048; // 1 foot = 0.3048 meters
+                        break;
+                    case "metersToFeet":
+                        result = value * 3.28084; // 1 meter = 3.28084 feet
+                        break;
+                    case "celsiusToFahrenheit":
+                        result = (value * 9/5) + 32;
+                        break;
+                    case "fahrenheitToCelsius":
+                        result = (value - 32) * 5/9;
+                        break;
+                    default:
+                        result = "Invalid conversion type";
+                        break;
+                }
 
-                // Display the result
-                document.getElementById("result").innerText = meters + " meters is equal to " + feet.toFixed(2) + " feet.";
+                document.getElementById("result").innerText = "Result: " + result.toFixed(2);
             } else {
-                // Display an error message for invalid input
                 document.getElementById("result").innerText = "Please enter a valid number.";
             }
         }
