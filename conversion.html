@@ -24,6 +24,8 @@
             background-color: #FFC0CB; /* Pink */
             padding: 15px; /* Increased padding */
             text-align: center; /* Center links */
+            display: flex; /* Use Flexbox */
+            justify-content: center; /* Center items horizontally */
         }
 
         nav a {
@@ -137,21 +139,4 @@
                         break;
                     case "celsiusToFahrenheit":
                         result = (value * 9/5) + 32;
-                        break;
-                    case "fahrenheitToCelsius":
-                        result = (value - 32) * 5/9;
-                        break;
-                    default:
-                        result = "Invalid conversion type";
-                        break;
-                }
-
-                document.getElementById("result").innerText = "Result: " + result.toFixed(2);
-            } else {
-                document.getElementById("result").innerText = "Please enter a valid number.";
-            }
-        }
-    </script>
-
-</body>
-</html>
+                       
