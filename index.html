@@ -30,6 +30,28 @@
             color: #800080; /* Purple */
             text-decoration: none;
             margin: 0 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            position: absolute;
+            background-color: #FFC0CB; /* Pink */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        nav ul li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a:hover ul {
+            display: block;
         }
 
         section {
@@ -75,16 +97,25 @@
 
     <nav>
         <a href="index.html">Home</a>
-        <a href="about.html">About</a>
+        <a href="#">About
+            <ul>
+                <li><a href="team.html">Our Team</a></li>
+                <li><a href="mission.html">Mission</a></li>
+                <!-- Add more submenu items as needed -->
+            </ul>
+        </a>
     </nav>
 
     <section>
         <h2>Welcome to Your Barbie Dream World</h2>
         <p>This is a magical webpage inspired by Barbie's world!</p>
         <p>You can customize this section to add more fabulous content.</p>
-        <img src="ryangosling.jpg" alt="Barbie Image">
+        <img src="path/to/your/image.jpg" alt="Barbie Image">
     </section>
 
+    <footer>
+        <p>&copy; 2023 Your Barbie Webpage. All rights reserved.</p>
+    </footer>
 
 </body>
 </html>
