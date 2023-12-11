@@ -139,4 +139,21 @@
                         break;
                     case "celsiusToFahrenheit":
                         result = (value * 9/5) + 32;
-                       
+                        break;
+                    case "fahrenheitToCelsius":
+                        result = (value - 32) * 5/9;
+                        break;
+                    default:
+                        result = "Invalid conversion type";
+                        break;
+                }
+
+                document.getElementById("result").innerText = "Result: " + result.toFixed(2);
+            } else {
+                document.getElementById("result").innerText = "Please enter a valid number.";
+            }
+        }
+    </script>
+
+</body>
+</html>
